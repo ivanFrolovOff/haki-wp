@@ -138,3 +138,96 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+function custom_post()
+{
+
+    $labels_gallery = array(
+        'name' => 'Галлерея',
+        'singular_name' => 'Галлерея',
+        'add_new' => 'Добавить новое фото',
+        'add_new_item' => 'Добавить новое фото',
+        'edit_item' => 'Редактировать',
+        'new_item' => 'Новый фото',
+        'view_item' => 'Просмотреть',
+        'search_items' => 'Найти фото',
+        'not_found' => 'Фото не найден',
+        'not_found_in_trash' => 'Фото не найден',
+        'parent_item_colon' => '',
+        'menu_name' => 'Галлерея'
+    );
+    $args_gallery = array(
+        'labels' => $labels_gallery,
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'query_var' => true,
+        'rewrite' => true,
+        'capability_type' => 'post',
+        'has_archive' => false,
+        'hierarchical' => false,
+        'menu_position' => null,
+        'supports' => array('title', 'custom-fields')
+    );
+    $labels_partners = array(
+        'name' => 'Партнеры',
+        'singular_name' => 'Партнер',
+        'add_new' => 'Добавить новое',
+        'add_new_item' => 'Добавить новое',
+        'edit_item' => 'Редактировать',
+        'new_item' => 'Новый партнер',
+        'view_item' => 'Просмотреть',
+        'search_items' => 'Найти партнер',
+        'not_found' => 'Партнер не найден',
+        'not_found_in_trash' => 'Партнер не найден',
+        'parent_item_colon' => '',
+        'menu_name' => 'Партнеры'
+    );
+    $args_partners = array(
+        'labels' => $labels_partners,
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'query_var' => true,
+        'rewrite' => true,
+        'capability_type' => 'post',
+        'has_archive' => false,
+        'hierarchical' => false,
+        'menu_position' => null,
+        'supports' => array('title', 'custom-fields')
+    );
+    $labels_advantages = array(
+        'name' => 'Наши преимущества',
+        'singular_name' => 'Наши преимущества',
+        'add_new' => 'Добавить новое',
+        'add_new_item' => 'Добавить новое',
+        'edit_item' => 'Редактировать',
+        'new_item' => 'Новое',
+        'view_item' => 'Просмотреть',
+        'menu_name' => 'Наши преимущества'
+    );
+    $args_advantages = array(
+        'labels' => $labels_advantages,
+        'public' => true,
+        'publicly_queryable' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'query_var' => true,
+        'rewrite' => true,
+        'capability_type' => 'post',
+        'has_archive' => false,
+        'hierarchical' => false,
+        'menu_position' => null,
+        'supports' => array('title', 'custom-fields')
+    );
+
+
+
+    register_post_type('gallery',$args_gallery);
+    register_post_type('partners',$args_partners);
+    register_post_type('advantages',$args_advantages);
+    flush_rewrite_rules();
+}
+add_action('init', 'custom_post');

@@ -18,7 +18,7 @@ $('form button').on('click',function(e){
     }
     else{
         $.ajax({
-            url: "formManager.php",
+            url: $('#modal_form_call').attr('action'),
             type: "POST",
             data:$(this).parent().serialize(),
             success: function(){

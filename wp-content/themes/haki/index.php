@@ -13,6 +13,10 @@
  */
 
 get_header(); ?>
-<?php ?>
+<?php get_template_part( 'template-parts/content-nav', get_post_format() ); ?>
+<?php get_template_part( 'template-parts/content-gallery', get_post_format() ); ?>
+<?php get_template_part( 'template-parts/content-advantages', get_post_format() ); ?>
+<?php get_template_part( 'template-parts/content-about', get_post_format() ); ?>
+<?php get_template_part( 'template-parts/content-partners', get_post_format() ); ?>
 <?php
 get_footer();
